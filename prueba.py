@@ -106,7 +106,8 @@ def leerImages():
         #hsv = bgr_to_hsv(ima)
         mask = smile_segmentation(ima)
         morph_filter = applyMorphologicFilter(mask)
-        find_biggest_contour(morph_filter)
+        big_contour, mask = find_biggest_contour(morph_filter)
+        overlay_mask(mask, ima)
         # plt.imshow(hsv)
         plt.show()
 
